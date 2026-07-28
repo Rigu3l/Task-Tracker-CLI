@@ -1,4 +1,4 @@
-# Momentum Task Tracker
+# Simple Task Tracker
 
 A simple, local task tracker with a calm browser-based GUI. Create tasks, assign priorities and due dates, track progress, and mark work complete.
 
