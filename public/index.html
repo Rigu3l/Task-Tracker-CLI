@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Momentum — Task Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Personal task tracker</p>
+          <h1>Make today<br /><em>count.</em></h1>
+          <p class="subtitle">A calm place to focus on what matters next.</p>
+        </div>
+        <div class="date-card" id="today"></div>
+      </section>
+
+      <section class="dashboard" aria-label="Task dashboard">
+        <div class="summary-card">
+          <span class="summary-label">Your progress</span>
+          <strong id="progress-text">0 of 0 complete</strong>
+          <div class="progress-track"><span id="progress-bar"></span></div>
+        </div>
+        <button class="add-button" id="open-modal">+ Add a task</button>
+      </section>
+
+      <nav class="filters" aria-label="Filter tasks">
+        <button class="filter active" data-filter="all">All <span id="count-all">0</span></button>
+        <button class="filter" data-filter="active">To do <span id="count-active">0</span></button>
+        <button class="filter" data-filter="completed">Done <span id="count-completed">0</span></button>
+      </nav>
+
+      <section id="task-list" class="task-list" aria-live="polite"></section>
+      <section id="empty-state" class="empty-state" hidden>
+        <div class="empty-icon">✓</div>
+        <h2>Nothing here yet</h2>
+        <p>Add a task and give your day a little momentum.</p>
+      </section>
+    </main>
+
+    <dialog id="task-modal">
+      <form id="task-form" method="dialog">
+        <div class="modal-header"><h2>New task</h2><button class="close-button" type="button" id="close-modal" aria-label="Close">×</button></div>
+        <label>What needs doing?<input id="task-title" name="title" required maxlength="120" placeholder="e.g. Send project update" autofocus /></label>
+        <div class="form-row">
+          <label>Priority<select id="task-priority" name="priority"><option value="low">Low</option><option value="medium" selected>Medium</option><option value="high">High</option></select></label>
+          <label>Due date<input id="task-date" name="dueDate" type="date" /></label>
+        </div>
+        <button class="submit-button" type="submit">Create task</button>
+      </form>
+    </dialog>
+    <template id="task-template">
+      <article class="task">
+        <button class="check" aria-label="Mark task complete"></button>
+        <div class="task-content"><h2></h2><div class="metadata"><span class="priority"></span><span class="due-date"></span></div></div>
+        <button class="delete" aria-label="Delete task">Delete</button>
+      </article>
+    </template>
+    <script src="app.js"></script>
+  </body>
+</html>

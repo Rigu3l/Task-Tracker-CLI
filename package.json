@@ -1,0 +1,9 @@
+{
+  "name": "task-tracker-gui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A local task tracker with a browser GUI",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
